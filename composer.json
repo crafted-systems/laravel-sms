@@ -1,0 +1,33 @@
+{
+  "name": "crafted-systems/laravel-sms",
+  "description": "A Laravel Package for Sending out SMS from multiple Gateways",
+  "license": "MIT",
+  "type": "library",
+  "require": {
+    "php": ">=7.0",
+    "illuminate/support": "5.*"
+  },
+  "author": {
+    "name": "Crafted Systems ",
+    "email": "hello@crafted.co.ke"
+  },
+  "autoload": {
+    "psr-4": {
+      "CraftedSystems\\LaravelSMS\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CraftedSystems\\LaravelSMS\\SMSServiceProvider"
+      ],
+      "aliases": {
+        "SMS": "CraftedSystems\\LaravelSMS\\Facades\\SMS"
+      }
+    }
+  },
+  "minimum-stability": "dev"
+}
