@@ -33,5 +33,5 @@ Interface SMSContract
      * @param Request $request
      * @return mixed
      */
-    public function getDeliveryReport(Request $request);
+    public function getDeliveryReportS(Request $request);
 }

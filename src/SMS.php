@@ -36,7 +36,7 @@ class SMS
 
     /**
      *
-     * @var null|string
+     * @var object
      */
     protected $object = null;
 
@@ -99,7 +99,7 @@ class SMS
      */
     public function getDeliveryReports(Request $request)
     {
-        return $this->object->getDeliveryReport($request);
+        return $this->object->getDeliveryReports($request);
     }
 
 }

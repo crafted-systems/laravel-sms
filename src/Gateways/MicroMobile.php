@@ -69,9 +69,9 @@ class MicroMobile implements SMSContract
      * @param Request $request
      * @return mixed|object
      */
-    public function getDeliveryReport(Request $request)
+    public function getDeliveryReports(Request $request)
     {
-        $response = $this->class::getDeliveryReport($request);
+        $response = $this->class->getDeliveryReports($request);
 
         $data = [
             'status' => $response->deliveryStatus,
