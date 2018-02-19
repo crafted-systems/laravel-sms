@@ -39,6 +39,12 @@ return [
             'username' => env('MICROMOBILE_USERNAME'),
             'password' => env('MICROMOBILE_PASSWORD'),
             'call_back_url' => env('MICROMOBILE_CALL_BACK_URL')
+        ],
+
+        'africastalking' => [
+            'username' => env('AFRICASTALKING_USERNAME'),
+            'api_key' => env('AFRICASTALKING_API_KEY'),
+            'from' => env('AFRICASTALKING_FROM')
         ]
     ],
 
@@ -58,5 +64,6 @@ return [
     'map' => [
         'bongatech' => \CraftedSystems\LaravelSMS\Gateways\Bongatech::class,
         'micromobile' => \CraftedSystems\LaravelSMS\Gateways\MicroMobile::class,
+        'africastalking' => \CraftedSystems\LaravelSMS\Gateways\AfricasTalking::class,
     ]
 ];
