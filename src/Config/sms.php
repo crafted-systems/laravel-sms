@@ -12,7 +12,7 @@ return [
     |
     */
 
-    'default' => env('DEFAULT_SMS_GATEWAY', 'bongatech'),
+    'default' => env('DEFAULT_SMS_GATEWAY'),
 
     /*
     |--------------------------------------------------------------------------
