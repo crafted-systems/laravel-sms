@@ -45,6 +45,13 @@ return [
             'username' => env('AFRICASTALKING_USERNAME'),
             'api_key' => env('AFRICASTALKING_API_KEY'),
             'from' => env('AFRICASTALKING_FROM')
+        ],
+
+        'infosky' => [
+            'acc_no' => env('INFOSKY_ACC_NO'),
+            'api_key' => env('INFOSKY_API_KEY'),
+            'sender_id' => env('INFOSKY_SENDER_ID'),
+            'call_back_url' => env('INFOSKY_CALL_BACK_URL')
         ]
     ],
 
@@ -65,5 +72,6 @@ return [
         'bongatech' => \CraftedSystems\LaravelSMS\Gateways\Bongatech::class,
         'micromobile' => \CraftedSystems\LaravelSMS\Gateways\MicroMobile::class,
         'africastalking' => \CraftedSystems\LaravelSMS\Gateways\AfricasTalking::class,
+        'infosky' => \CraftedSystems\LaravelSMS\Gateways\InfoSky::class,
     ]
 ];
