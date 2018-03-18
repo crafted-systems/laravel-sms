@@ -10,7 +10,7 @@ namespace CraftedSystems\LaravelSMS\Gateways;
 
 use CraftedSystems\LaravelSMS\Contracts\SMSContract;
 use Illuminate\Http\Request;
-use AfricasTalking\AfricasTalkingGateway;
+use VMosoti\AfricasTalking\AfricasTalkingGateway;
 
 class AfricasTalking implements SMSContract
 {
@@ -27,9 +27,9 @@ class AfricasTalking implements SMSContract
      */
     public function __construct($settings)
     {
-        if (!class_exists('AfricasTalking\AfricasTalkingGateway')) {
+        if (!class_exists('VMosoti\AfricasTalking\AfricasTalkingGateway')) {
 
-            throw new \Exception("Class 'AfricasTalking\AfricasTalkingGateway' does not exist");
+            throw new \Exception("Class 'VMosoti\AfricasTalking\AfricasTalkingGateway' does not exist");
         }
 
         $s = (object)$settings;
