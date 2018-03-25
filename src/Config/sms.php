@@ -52,6 +52,13 @@ return [
             'api_key' => env('INFOSKY_API_KEY'),
             'sender_id' => env('INFOSKY_SENDER_ID'),
             'call_back_url' => env('INFOSKY_CALL_BACK_URL')
+        ],
+
+        'infobip' => [
+            'username' => env('INFOBIP_USERNAME'),
+            'password' => env('INFOBIP_PASSWORD'),
+            'from' => env('INFOBIP_FROM'),
+            'call_back_url' => env('INFOBIP_CALL_BACK_URL')
         ]
     ],
 
@@ -73,5 +80,6 @@ return [
         'micromobile' => \CraftedSystems\LaravelSMS\Gateways\MicroMobile::class,
         'africastalking' => \CraftedSystems\LaravelSMS\Gateways\AfricasTalking::class,
         'infosky' => \CraftedSystems\LaravelSMS\Gateways\InfoSky::class,
+        'infobip' => \CraftedSystems\LaravelSMS\Gateways\InfoBip::class,
     ]
 ];
