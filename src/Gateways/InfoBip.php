@@ -111,8 +111,8 @@ class InfoBip implements SMSContract
         $result = $responseObject->getResults()[0];
 
         $data = [
-            'status' => $result->getMessageId(),
-            'message_id' => $result->getStatus()->getName(),
+            'status' => $result->getStatus()->getName(),
+            'message_id' => $result->getMessageId(),
             'price' => $result->getPrice()->getPricePerMessage()
         ];
 
