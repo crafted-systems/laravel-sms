@@ -16,7 +16,6 @@ use infobip\api\model\Destination;
 use infobip\api\model\sms\mt\send\Message;
 use infobip\api\model\sms\mt\send\textual\SMSAdvancedTextualRequest;
 
-use infobip\api\model\sms\mt\reports\SMSReport;
 use infobip\api\model\sms\mt\reports\SMSReportResponse;
 use JsonMapper;
 
@@ -91,7 +90,7 @@ class InfoBip implements SMSContract
      */
     public function getBalance()
     {
-        $client = new GetAccountBalance(new BasicAuthConfiguration($this->settings->username, $this->settings->password));
+        $client = new GetAccountBalance(new BasicAuthConfiguration(config('sms.gateways.infobip.username'), config('sms.gateways.infobip.password')));
         $response = $client->execute();
 
         $response->getBalance();
