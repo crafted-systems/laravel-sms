@@ -86,14 +86,14 @@ class InfoBip implements SMSContract
 
 
     /**
-     * @return mixed|void
+     * @return mixed
      */
     public function getBalance()
     {
-        $client = new GetAccountBalance(new BasicAuthConfiguration(config('sms.gateways.infobip.username'), config('sms.gateways.infobip.password')));
+        $client = new GetAccountBalance(new BasicAuthConfiguration($this->settings->username, $this->settings->password));
         $response = $client->execute();
 
-        $response->getBalance();
+        return $response->getBalance();
     }
 
 
