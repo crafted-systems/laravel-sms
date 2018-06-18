@@ -60,6 +60,13 @@ return [
             'password' => env('INFOBIP_PASSWORD'),
             'from' => env('INFOBIP_FROM'),
             'call_back_url' => env('INFOBIP_CALL_BACK_URL')
+        ],
+
+        'tilil' => [
+            'username' => env('TILIL_USERNAME'),
+            'password' => env('TILIL_PASSWORD'),
+            'short_code' => env('TILIL_SHORTCODE'),
+            'call_back_url' => env('TILIL_CALL_BACK_URL')
         ]
     ],
 
@@ -82,5 +89,6 @@ return [
         'africastalking' => \CraftedSystems\LaravelSMS\Gateways\AfricasTalking::class,
         'infosky' => \CraftedSystems\LaravelSMS\Gateways\InfoSky::class,
         'infobip' => \CraftedSystems\LaravelSMS\Gateways\InfoBip::class,
+        'tilil' => \CraftedSystems\LaravelSMS\Gateways\Tilil::class,
     ]
 ];
