@@ -8,14 +8,14 @@
 
 namespace CraftedSystems\LaravelSMS\Gateways;
 
-use CraftedSystems\InfoSky\TililSMS;
+use CraftedSystems\InfoSky\InfoSkySMS;
 use CraftedSystems\LaravelSMS\Contracts\SMSContract;
 use Illuminate\Http\Request;
 
 class InfoSky implements SMSContract
 {
     /**
-     * @var TililSMS
+     * @var InfoSkySMS
      */
     protected $class;
 
@@ -27,12 +27,12 @@ class InfoSky implements SMSContract
      */
     public function __construct($settings)
     {
-        if (!class_exists('CraftedSystems\InfoSky\TililSMS')) {
+        if (!class_exists('CraftedSystems\InfoSky\InfoSkySMS')) {
 
             throw new \Exception("Class 'CraftedSystems\InfoSky\InfoSkySMS' does not exist");
         }
 
-        $this->class = new TililSMS($settings);
+        $this->class = new InfoSkySMS($settings);
     }
 
     /**
