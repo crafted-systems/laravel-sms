@@ -67,6 +67,12 @@ return [
             'password' => env('TILIL_PASSWORD'),
             'short_code' => env('TILIL_SHORTCODE'),
             'call_back_url' => env('TILIL_CALL_BACK_URL')
+        ],
+
+        'aptus' => [
+            'username' => env('APTUS_USERNAME'),
+            'password' => env('APTUS_PASSWORD'),
+            'senderid' => env('APTUS_SENDERID')
         ]
     ],
 
@@ -90,5 +96,6 @@ return [
         'infosky' => \CraftedSystems\LaravelSMS\Gateways\InfoSky::class,
         'infobip' => \CraftedSystems\LaravelSMS\Gateways\InfoBip::class,
         'tilil' => \CraftedSystems\LaravelSMS\Gateways\Tilil::class,
+        'aptus' => \CraftedSystems\LaravelSMS\Gateways\Aptus::class,
     ]
 ];
