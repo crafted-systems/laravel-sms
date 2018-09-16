@@ -73,6 +73,11 @@ return [
             'username' => env('APTUS_USERNAME'),
             'password' => env('APTUS_PASSWORD'),
             'senderid' => env('APTUS_SENDERID')
+        ],
+        'synq' => [
+            'user' => env('SYNQ_USER'),
+            'password' => env('SYNQ_PASSWORD'),
+            'source' => env('SYNQ_SOURCE')
         ]
     ],
 
@@ -97,5 +102,6 @@ return [
         'infobip' => \CraftedSystems\LaravelSMS\Gateways\InfoBip::class,
         'tilil' => \CraftedSystems\LaravelSMS\Gateways\Tilil::class,
         'aptus' => \CraftedSystems\LaravelSMS\Gateways\Aptus::class,
+        'synq' => \CraftedSystems\LaravelSMS\Gateways\Synq::class,
     ]
 ];
