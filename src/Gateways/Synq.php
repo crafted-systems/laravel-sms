@@ -50,7 +50,7 @@ class Synq implements SMSContract
 
         $data = [
             'is_success' => $d === 'OK',
-            'message_id' => $params['message_id']
+            'message_id' => $params['message_id'] ?? ''
         ];
 
         return (object)$data;
