@@ -78,6 +78,9 @@ return [
             'user' => env('SYNQ_USER'),
             'password' => env('SYNQ_PASSWORD'),
             'source' => env('SYNQ_SOURCE')
+        ],
+        'smskenya' => [
+            'api_key' => env('SMS_KENYA_API_KEY')
         ]
     ],
 
@@ -103,5 +106,6 @@ return [
         'tilil' => \CraftedSystems\LaravelSMS\Gateways\Tilil::class,
         'aptus' => \CraftedSystems\LaravelSMS\Gateways\Aptus::class,
         'synq' => \CraftedSystems\LaravelSMS\Gateways\Synq::class,
+        'smskenya' => \CraftedSystems\LaravelSMS\Gateways\SMSKenya::class,
     ]
 ];
