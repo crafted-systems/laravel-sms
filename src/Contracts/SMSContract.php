@@ -9,7 +9,6 @@ Interface SMSContract
     /**
      * Construct the class with the relevant settings.
      *
-     * SendSmsInterface constructor.
      * @param $settings object
      */
     public function __construct($settings);
@@ -25,9 +24,28 @@ Interface SMSContract
 
 
     /**
+     * @param $payload
+     */
+    public function sendBatch($payload);
+
+
+    /**
      * @return mixed
      */
     public function getBalance();
+
+
+    /**
+     * define when the a message is successfully sent
+     * @return bool
+     */
+    public function is_successful();
+
+    /**
+     * the message ID as received on the request
+     * @return mixed
+     */
+    public function getMessageID();
 
     /**
      * @param Request $request
