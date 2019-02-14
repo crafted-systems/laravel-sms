@@ -5,6 +5,7 @@ if (!function_exists('sms')) {
 
     /**
      * @return \CraftedSystems\LaravelSMS\SMS
+     * @throws Exception
      */
     function sms()
     {

@@ -65,13 +65,15 @@ class SMS
         return $this;
     }
 
+    /**
+     *map the gateway that will be used to send
+     */
     private function mapGateway()
     {
         $this->settings = $this->config['gateways'][$this->gateway];
         $class = $this->config['map'][$this->gateway];
         $this->object = new $class($this->settings);
     }
-
 
     /**
      * @param $recipient
@@ -82,6 +84,24 @@ class SMS
     public function send($recipient, $message, $params = null)
     {
         return $this->object->send($recipient, $message, $params);
+    }
+
+    /**
+     * define when the a message is successfully sent
+     * @return bool
+     */
+    public function is_successful()
+    {
+        return $this->object->is_successful();
+    }
+
+    /**
+     * the message ID as received on the response
+     * @return mixed
+     */
+    public function getMessageID()
+    {
+        return $this->object->getMessageID();
     }
 
     /**

@@ -1,79 +1,128 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: vincent
- * Date: 12/14/17
- * Time: 6:04 PM
- */
 
 namespace CraftedSystems\LaravelSMS\Gateways;
 
 use CraftedSystems\LaravelSMS\Contracts\SMSContract;
 use Illuminate\Http\Request;
-use VMosoti\AfricasTalking\AfricasTalkingGateway;
+use AfricasTalking\SDK\AfricasTalking as SMSGateway;
 
 class AfricasTalking implements SMSContract
 {
     /**
-     * @var AfricasTalkingGateway
+     * @var array
      */
-    protected $class;
+    protected $settings;
+
+    /**
+     * @var bool
+     */
+    protected $is_success;
+
+    /**
+     * @var mixed
+     */
+    protected $message_id;
+
+    /**
+     * @var object
+     */
+    public $data;
 
 
     /**
-     * MicroMobile constructor.
      * @param $settings
      * @throws \Exception
      */
     public function __construct($settings)
     {
-        if (!class_exists('VMosoti\AfricasTalking\AfricasTalkingGateway')) {
+        // initiate settings (username, api_key, etc)
 
-            throw new \Exception("Class 'VMosoti\AfricasTalking\AfricasTalkingGateway' does not exist");
-        }
-
-        $s = (object)$settings;
-
-        $this->class = new AfricasTalkingGateway($s->username, $s->api_key);
+        $this->settings = (object)$settings;
     }
 
     /**
      * @param $recipient
      * @param $message
      * @param null $params
-     * @return mixed
-     * @throws \Exception
+     * @return object
      */
-    public function send($recipient, $message, $params = null)
+    public function send(string $recipient, string $message, $params = null)
     {
-        $response = $this->class->sendMessage($recipient, $message, config('sms.gateways.africastalking.from'));
+        $AT = new SMSGateway($this->settings->username, $this->settings->api_key);
+        $sms = $AT->sms();
 
-        $data = [
-            'is_success' => $response[0]->status === 'Success',
-            'correlator' => '',
-            'message_id' => $response[0]->messageId,
-            'cost' => $response[0]->cost
-        ];
+        $result = $sms->send([
+            'to' => $recipient,
+            'message' => $message,
+            'from' => $this->settings->from
+        ]);
 
-        return (object)$data;
+        // message sending successful
+        if ($result['status'] == 'success') {
+
+            $data = $result['data']->SMSMessageData->Recipients[0];
+
+            $this->is_success = $data->status == 'Success'; // define what determines success from the response
+            $this->message_id = $data->messageId; // reference the message id here. auto generate if not available
+            $arr = [
+                'is_success' => $data->status == 'Success',
+                'message_id' => $data->messageId,
+                'number' => $data->number,
+                'cost' => $data->cost,
+                'status' => $data->status,
+                'statusCode' => $data->statusCode,
+            ];
+
+            $this->data = (object)$arr;
+
+            return $this;
+
+
+        } else {
+            // sms sending failed  // problem with gateway
+            $arr = $result;
+            $this->data = (object)$arr;
+            return $this;
+        }
     }
 
+    /**
+     * initialize the is_success parameter
+     * @return bool
+     */
+    public function is_successful(): bool
+    {
+        return $this->is_success;
+    }
 
     /**
+     * assign the message ID as received on the response,auto generate if not available
      * @return mixed
-     * @throws \AfricasTalking\AfricasTalkingGatewayException
      */
-    public function getBalance()
+    public function getMessageID()
     {
-        return trim(str_replace('KES', '', $this->class->getUserData()->balance));
+        return $this->message_id;
+    }
+
+    /**
+     * auto generate if not available
+     */
+    public function getBalance(): float
+    {
+        $AT = new SMSGateway($this->settings->username, $this->settings->api_key);
+        $application = $AT->application();
+        $balance = $application->fetchApplicationData()['data']->UserData->balance;
+        $replacements = array('/\bKES\b/', '/\bUGX\b/', '/\TSH\b/');
+
+        return (float)str_replace(' ', '', preg_replace($replacements, '', $balance));
     }
 
 
     /**
      * @param Request $request
-     * @return mixed|object
+     * @return object
      */
-    public function getDeliveryReports(Request $request)
+    public function getDeliveryReportS(Request $request)
     {
         $status = $request->status;
 

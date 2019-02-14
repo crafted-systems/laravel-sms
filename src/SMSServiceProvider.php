@@ -2,6 +2,7 @@
 
 namespace CraftedSystems\LaravelSMS;
 
+use CraftedSystems\LaravelSMS\Console\MakeGatewayCommand;
 use Illuminate\Support\ServiceProvider;
 
 class SMSServiceProvider extends ServiceProvider
@@ -22,6 +23,13 @@ class SMSServiceProvider extends ServiceProvider
         });
 
         $this->app->alias(SMS::class, 'sms');
+
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                MakeGatewayCommand::class,
+            ]);
+        }
 
     }
 
