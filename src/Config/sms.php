@@ -49,5 +49,6 @@ return [
 
     'map' => [
         'africastalking' => \CraftedSystems\LaravelSMS\Gateways\AfricasTalking::class,
+
     ]
 ];
