@@ -30,7 +30,7 @@ php artisan vendor:publish --provider=CraftedSystems\\LaravelSMS\\SMSServiceProv
 
 The default gateway is [AfricasTalking](https://africastalking.com/)
 
-Check the config file of all variables required, an then
+Check the config file of all variables required, and then
 
 ```php
 (new SMS())->send('254712345678','Test SMS');
