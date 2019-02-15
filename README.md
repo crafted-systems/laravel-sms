@@ -1,7 +1,7 @@
 # Laravel SMS
 
-[![Latest Stable Version](https://poser.pugx.org/crafted-systems/laravel-sms/v/stable)](https://packagist.org/packages/vmosoti/bongatech-sms)
-[![Latest Unstable Version](https://poser.pugx.org/crafted-systems/laravel-sms/v/unstable)](https://packagist.org/packages/vmosoti/bongatech-sms)
+[![Latest Stable Version](https://poser.pugx.org/crafted-systems/laravel-sms/v/stable)](https://packagist.org/packages/crafted-systems/laravel-sms)
+[![Latest Unstable Version](https://poser.pugx.org/crafted-systems/laravel-sms/v/unstable)](https://packagist.org/packages/crafted-systems/laravel-sms)
 [![StyleCI](https://github.styleci.io/repos/107381762/shield?branch=master)](https://github.styleci.io/repos/107381762)
 [![Build Status](https://travis-ci.org/crafted-systems/laravel-sms.svg?branch=master)](https://travis-ci.org/crafted-systems/laravel-sms)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/crafted-systems/laravel-sms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/crafted-systems/laravel-sms/?branch=master)
