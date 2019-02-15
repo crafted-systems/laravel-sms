@@ -3,11 +3,10 @@
  * Created by PhpStorm.
  * User: vincent
  * Date: 12/14/17
- * Time: 4:54 PM
+ * Time: 4:54 PM.
  */
 
 namespace CraftedSystems\LaravelSMS;
-
 
 use Illuminate\Http\Request;
 
@@ -35,14 +34,13 @@ class SMS
     protected $gateway = null;
 
     /**
-     *
      * @var object
      */
     protected $object = null;
 
-
     /**
      * SMS constructor.
+     *
      * @throws \Exception
      */
     public function __construct()
@@ -56,17 +54,19 @@ class SMS
      * Change the gateway on the fly.
      *
      * @param $gateway
+     *
      * @return $this
      */
     public function gateway($gateway)
     {
         $this->gateway = $gateway;
         $this->mapGateway();
+
         return $this;
     }
 
     /**
-     *map the gateway that will be used to send
+     *map the gateway that will be used to send.
      */
     private function mapGateway()
     {
@@ -79,6 +79,7 @@ class SMS
      * @param $recipient
      * @param $message
      * @param null $params
+     *
      * @return mixed
      */
     public function send($recipient, $message, $params = null)
@@ -87,7 +88,8 @@ class SMS
     }
 
     /**
-     * define when the a message is successfully sent
+     * define when the a message is successfully sent.
+     *
      * @return bool
      */
     public function is_successful()
@@ -96,7 +98,8 @@ class SMS
     }
 
     /**
-     * the message ID as received on the response
+     * the message ID as received on the response.
+     *
      * @return mixed
      */
     public function getMessageID()
@@ -112,14 +115,13 @@ class SMS
         return $this->object->getBalance();
     }
 
-
     /**
      * @param Request $request
+     *
      * @return mixed
      */
     public function getDeliveryReports(Request $request)
     {
         return $this->object->getDeliveryReports($request);
     }
-
 }

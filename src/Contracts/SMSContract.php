@@ -4,7 +4,7 @@ namespace CraftedSystems\LaravelSMS\Contracts;
 
 use Illuminate\Http\Request;
 
-Interface SMSContract
+interface SMSContract
 {
     /**
      * Construct the class with the relevant settings.
@@ -17,6 +17,7 @@ Interface SMSContract
      * @param $recipient
      * @param $message
      * @param null $params
+     *
      * @return mixed
      */
     public function send(string $recipient, string $message, $params = null);
@@ -26,21 +27,23 @@ Interface SMSContract
      */
     public function getBalance();
 
-
     /**
-     * define when the a message is successfully sent
+     * define when the a message is successfully sent.
+     *
      * @return bool
      */
     public function is_successful();
 
     /**
-     * the message ID as received on the response
+     * the message ID as received on the response.
+     *
      * @return mixed
      */
     public function getMessageID();
 
     /**
      * @param Request $request
+     *
      * @return object
      */
     public function getDeliveryReportS(Request $request);

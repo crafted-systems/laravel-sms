@@ -15,7 +15,7 @@ class SMSServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/Config/sms.php' => config_path('sms.php'),
+            __DIR__.'/Config/sms.php' => config_path('sms.php'),
         ], 'laravel_sms_config');
 
         $this->app->singleton(SMS::class, function () {
@@ -24,13 +24,11 @@ class SMSServiceProvider extends ServiceProvider
 
         $this->app->alias(SMS::class, 'sms');
 
-
         if ($this->app->runningInConsole()) {
             $this->commands([
                 MakeGatewayCommand::class,
             ]);
         }
-
     }
 
     /**
@@ -41,7 +39,7 @@ class SMSServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/Config/sms.php', 'laravel-sms'
+            __DIR__.'/Config/sms.php', 'laravel-sms'
         );
     }
 }

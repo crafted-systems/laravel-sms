@@ -3,14 +3,13 @@
  * Created by PhpStorm.
  * User: vincent
  * Date: 12/14/17
- * Time: 6:04 PM
+ * Time: 6:04 PM.
  */
 
 namespace CraftedSystems\LaravelSMS\Gateways;
 
-
-use CraftedSystems\SMSKenya\SMSKenya as SMS_Kenya;
 use CraftedSystems\LaravelSMS\Contracts\SMSContract;
+use CraftedSystems\SMSKenya\SMSKenya as SMS_Kenya;
 use Illuminate\Http\Request;
 
 class SMSKenya implements SMSContract
@@ -20,15 +19,14 @@ class SMSKenya implements SMSContract
      */
     protected $class;
 
-
     /**
      * @param $settings
+     *
      * @throws \Exception
      */
     public function __construct($settings)
     {
         if (!class_exists('CraftedSystems\SMSKenya\SMSKenya')) {
-
             throw new \Exception("Class 'CraftedSystems\SMSKenya\SMSKenya' does not exist");
         }
 
@@ -39,8 +37,10 @@ class SMSKenya implements SMSContract
      * @param $recipient
      * @param $message
      * @param null $params
-     * @return mixed
+     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function send($recipient, $message, $params = null)
     {
@@ -48,10 +48,10 @@ class SMSKenya implements SMSContract
 
         $data = [
             'is_success' => $response->code === '200:OK',
-            'message_id' => ''
+            'message_id' => '',
         ];
 
-        return (object)$data;
+        return (object) $data;
     }
 
     /**
@@ -62,9 +62,9 @@ class SMSKenya implements SMSContract
         return $this->class->getBalance();
     }
 
-
     /**
      * @param Request $request
+     *
      * @return mixed|object
      */
     public function getDeliveryReports(Request $request)
@@ -72,10 +72,10 @@ class SMSKenya implements SMSContract
         $response = $this->class->getDeliveryReports($request);
 
         $data = [
-            'status' => '',
-            'message_id' => ''
+            'status'     => '',
+            'message_id' => '',
         ];
 
-        return (object)$data;
+        return (object) $data;
     }
 }

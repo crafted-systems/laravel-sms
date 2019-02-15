@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: vincent
  * Date: 12/13/17
- * Time: 6:39 AM
+ * Time: 6:39 AM.
  */
 
 namespace CraftedSystems\LaravelSMS\Facades;
