@@ -29,8 +29,8 @@ return [
 
         'africastalking' => [
             'username' => env('AFRICASTALKING_USERNAME'),
-            'api_key' => env('AFRICASTALKING_API_KEY'),
-            'from' => env('AFRICASTALKING_FROM')
+            'api_key'  => env('AFRICASTALKING_API_KEY'),
+            'from'     => env('AFRICASTALKING_FROM'),
         ],
     ],
 
@@ -50,5 +50,5 @@ return [
     'map' => [
         'africastalking' => \CraftedSystems\LaravelSMS\Gateways\AfricasTalking::class,
 
-    ]
+    ],
 ];
