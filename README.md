@@ -5,8 +5,8 @@
 [![StyleCI](https://github.styleci.io/repos/107381762/shield?branch=master)](https://github.styleci.io/repos/107381762)
 [![Build Status](https://travis-ci.org/crafted-systems/laravel-sms.svg?branch=master)](https://travis-ci.org/crafted-systems/laravel-sms)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/crafted-systems/laravel-sms/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/crafted-systems/laravel-sms/?branch=master)
-[![Total Downloads](https://poser.pugx.org/crafted-systems/laravel-sms/downloads)](https://packagist.org/packages/vmosoti/bongatech-sms)
-[![License](https://poser.pugx.org/crafted-systems/laravel-sms/license)](https://packagist.org/packages/vmosoti/bongatech-sms)
+[![Total Downloads](https://poser.pugx.org/crafted-systems/laravel-sms/downloads)](https://packagist.org/packages/crafted-systems/laravel-sms)
+[![License](https://poser.pugx.org/crafted-systems/laravel-sms/license)](https://packagist.org/packages/crafted-systems/laravel-sms)
 
 
 This is a Laravel library meant to make it easier to send SMS and switch between multiple SMS Gateways.
