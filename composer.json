@@ -4,14 +4,17 @@
   "license": "MIT",
   "type": "library",
   "require": {
-    "php": ">=7.1",
-    "illuminate/support": "5.*",
-    "guzzlehttp/guzzle": "^6.3"
+    "php": "^7.2",
+    "illuminate/support": "^6.0|^7.0|^8.0"
   },
-  "author": {
-    "name": "Crafted Systems ",
-    "email": "hello@crafted.co.ke"
-  },
+  "authors": [
+    {
+      "name": "Vincent Mosoti",
+      "email": "vincent@crafted.co.ke",
+      "homepage": "https://github.com/vmosoti",
+      "role": "Developer"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "CraftedSystems\\LaravelSMS\\": "src/"
